@@ -1,2 +1,2 @@
-web: PORT=3000 npm --prefix client start
+web: PORT=3000 sudo npm --prefix client start
 api: PORT=3001 bundle exec rails server
