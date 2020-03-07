@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/ProtoTrelloReact/static/css/main.4108a98c.chunk.css",
+    "main.js": "/ProtoTrelloReact/static/js/main.b2dc084f.chunk.js",
+    "main.js.map": "/ProtoTrelloReact/static/js/main.b2dc084f.chunk.js.map",
+    "runtime-main.js": "/ProtoTrelloReact/static/js/runtime-main.c90d4196.js",
+    "runtime-main.js.map": "/ProtoTrelloReact/static/js/runtime-main.c90d4196.js.map",
+    "static/css/2.47e06e2e.chunk.css": "/ProtoTrelloReact/static/css/2.47e06e2e.chunk.css",
+    "static/js/2.85441001.chunk.js": "/ProtoTrelloReact/static/js/2.85441001.chunk.js",
+    "static/js/2.85441001.chunk.js.map": "/ProtoTrelloReact/static/js/2.85441001.chunk.js.map",
+    "index.html": "/ProtoTrelloReact/index.html",
+    "precache-manifest.9d39efdc7ff9a8e3f89a9e19fdcd67e4.js": "/ProtoTrelloReact/precache-manifest.9d39efdc7ff9a8e3f89a9e19fdcd67e4.js",
+    "service-worker.js": "/ProtoTrelloReact/service-worker.js",
+    "static/css/2.47e06e2e.chunk.css.map": "/ProtoTrelloReact/static/css/2.47e06e2e.chunk.css.map",
+    "static/css/main.4108a98c.chunk.css.map": "/ProtoTrelloReact/static/css/main.4108a98c.chunk.css.map",
+    "static/js/2.85441001.chunk.js.LICENSE.txt": "/ProtoTrelloReact/static/js/2.85441001.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c90d4196.js",
+    "static/css/2.47e06e2e.chunk.css",
+    "static/js/2.85441001.chunk.js",
+    "static/css/main.4108a98c.chunk.css",
+    "static/js/main.b2dc084f.chunk.js"
+  ]
+}

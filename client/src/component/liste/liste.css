@@ -1,0 +1,64 @@
+body {
+    background-color:#4bbf6b ;
+}
+
+.liste {
+    background-color:#ebecf0;
+    color:white;
+    max-width: 230px;
+    min-height: 60px;
+    position: relative;
+    display: inline-block;
+    flex-direction: column;
+    vertical-align: top;
+    border-radius: 3%;
+}
+
+.addListe {
+    background-color:rgba(255, 255, 255, 0.3);
+    color:white;
+    max-width: 230px;
+    min-height: 60px;
+    position: relative;
+    display: inline-block;
+    flex-direction: column;
+    vertical-align: top;
+    border-radius: 3%;
+}
+.titleOfListe {
+    color: black;
+    font-weight: bold;
+    background-color:#46464900 ;
+    border-color:#46464900 ;
+    width: 90%;
+}
+.titleOfListe:focus {
+    background-color:#ffffff ;
+}
+.addCarte {
+    color: rgb(94, 108, 132);
+}
+
+.carte {
+    color: black;
+    background-color: white;
+    font-size: 14px;
+    border-radius: 3px;
+    padding: 5px;
+}
+.carte a{
+    color: black;
+
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.board-list {
+    position: absolute;
+    flex-grow: 1;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    height: 100%;
+    width: 100%;
+}
