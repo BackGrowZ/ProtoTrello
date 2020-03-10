@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react'
+import Header from '../header/header'
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import uuid from 'uuid'
@@ -354,6 +355,7 @@ export default class DataListe extends Component {
     const { selectedOption } = this.state;
     return (
       <Fragment>
+        <Header/>
         <div className='board-list pl-2'>
 
           {this.state.listes.map((listes) => {

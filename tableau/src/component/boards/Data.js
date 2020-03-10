@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react'
+import Header from '../header/header'
 import axios from 'axios'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Modal from 'react-bootstrap/Modal'
@@ -82,6 +83,7 @@ export default class Data extends Component {
   render() {
     return (
       <Fragment>
+        <Header/>
         <div className="App">
           <div className="container mt-5">
             <h1>Mes tableaux</h1>
