@@ -9,5 +9,8 @@
     "build": "yarn --cwd tableau install && yarn --cwd tableau build",
     "deploy": "cp -a tableau/build/. public/",
     "heroku-postbuild": "yarn build && yarn deploy"
+  },
+  "dependencies": {
+    "immutability-helper": "^3.0.1"
   }
 }
