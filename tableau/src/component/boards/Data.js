@@ -19,7 +19,14 @@ export default class Data extends Component {
     let token = "Bearer " + localStorage.getItem("jwt");
     axios.get('/api/v1/boards', { headers: { 'Authorization': token } })
       .then(response => {
-        this.setState({ boards: response.data })
+        const owner = localStorage.getItem("owner")
+        let boards = []
+        for (let i = 0; i < response.data.length; i++) {
+          if (response.data[i].owner === owner) {
+            boards.push(response.data[i])
+          }
+        }
+        this.setState({ boards: boards })
       })
       .catch(error => console.log(error))
   }
@@ -30,23 +37,23 @@ export default class Data extends Component {
 
 
   constructor(props, context) {
-    super(props, context);
+    super(props, context)
 
     this.state = {
       boards: [],
       newBoardLabel: ''
     }
 
-    this.handleShow = this.handleShow.bind(this);
-    this.handleClose = this.handleClose.bind(this);
+    this.handleShow = this.handleShow.bind(this)
+    this.handleClose = this.handleClose.bind(this)
   }
 
   handleClose() {
-    this.setState({ modal: false });
+    this.setState({ modal: false })
   }
 
   handleShow() {
-    this.setState({ modal: true });
+    this.setState({ modal: true })
   }
 
   onChange = (e) => {
@@ -58,11 +65,13 @@ export default class Data extends Component {
   onSubmit = (e) => {
     e.preventDefault()
     let token = "Bearer " + localStorage.getItem("jwt")
+    const owner = localStorage.getItem("owner")
     axios.defaults.headers.common['Authorization'] = token
-    if (this.state.newBoardLabel !== '') {
+    if (this.state.newBoardLabel !== '' && owner !== null) {
       axios.post('/api/v1/boards', {
         label: this.state.newBoardLabel,
-        key: uuid()
+        key: uuid(),
+        owner: owner
       })
         .then(response => {
           const boards = update(this.state.boards, {
@@ -83,10 +92,10 @@ export default class Data extends Component {
   render() {
     return (
       <Fragment>
-        <Header/>
+        <Header />
         <div className="App">
           <div className="container mt-5">
-            <h1>Mes tableaux</h1>
+            <h1 className="display-4" style={{ color: '#cccccc' }}>Mes tableaux</h1>
             <div className="row">
               {this.state.boards.map((boards) => {
                 return (

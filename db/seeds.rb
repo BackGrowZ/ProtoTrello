@@ -11,13 +11,13 @@ admin.admin = true
 admin.save
 
 user = User.new
-user.email = 'user@mail.com'
+user.email = 'trello@mail.com'
 user.password = 'trello'
 user.password_confirmation = 'trello'
 user.save
 
 user = User.new
-user.email = 'test@mail.com'
+user.email = 'mdp@mail.com'
 user.password = 'mdp'
 user.password_confirmation = 'mdp'
 user.save

@@ -1,8 +1,8 @@
 class CardsController < ApplicationController
   before_action :authenticate_user
-  # before_action :set_cards, only: [:show, :update, :destroy]
+  before_action :set_cards, only: [:show, :update, :destroy]
   def index
-    card = Card.order("position ASC")
+    card = Card.order("id ASC")
     # card = Card.all
     render json: card
   end
@@ -26,6 +26,6 @@ class CardsController < ApplicationController
   
   private
     def card_param
-      params.require(:card).permit(:label, :key, :liste, :board, :position, :description)
+      params.require(:card).permit(:label, :key, :liste, :board, :position, :description, :owner)
     end
 end

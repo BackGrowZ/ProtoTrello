@@ -2,7 +2,8 @@ class ListesController < ApplicationController
   before_action :authenticate_user
   # before_action :set_liste, only: [:show, :create, :update, :destroy]
   def index
-    liste = Liste.order("position ASC")
+    liste = Liste.order("id ASC")
+    # liste = liste.where("label = 'Je suis la 1e liste'")
     # liste = Liste.all
     render json: liste
   end
@@ -26,6 +27,6 @@ class ListesController < ApplicationController
   
   private
     def liste_param
-      params.require(:liste).permit(:label, :key, :board, :position)
+      params.require(:liste).permit(:label, :key, :board, :position, :owner)
     end
 end

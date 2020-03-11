@@ -7,12 +7,12 @@ import axios from 'axios'
 import update from 'immutability-helper'
 import Select from 'react-select'
 
-const options = [];
+const options = []
 
 export default class DataListe extends Component {
 
   getCard() {
-    let token = "Bearer " + localStorage.getItem("jwt");
+    let token = "Bearer " + localStorage.getItem("jwt")
     axios.get('/api/v1/cards', { headers: { 'Authorization': token } })
       .then(response => {
         var array = []
@@ -28,7 +28,7 @@ export default class DataListe extends Component {
   }
 
   getListe() {
-    let token = "Bearer " + localStorage.getItem("jwt");
+    let token = "Bearer " + localStorage.getItem("jwt")
     axios.get('/api/v1/listes', { headers: { 'Authorization': token } })
       .then(response => {
         var array = []
@@ -49,7 +49,7 @@ export default class DataListe extends Component {
   }
 
   constructor(props, context) {
-    super(props, context);
+    super(props, context)
 
     this.state = {
       listes: [],
@@ -67,17 +67,17 @@ export default class DataListe extends Component {
       selectedOption: null,
     }
 
-    this.handleShow = this.handleShow.bind(this);
-    this.handleClose = this.handleClose.bind(this);
+    this.handleShow = this.handleShow.bind(this)
+    this.handleClose = this.handleClose.bind(this)
 
-    this.handleShowEditeTitle = this.handleShowEditeTitle.bind(this);
-    this.handleCloseEditeTitle = this.handleCloseEditeTitle.bind(this);
+    this.handleShowEditeTitle = this.handleShowEditeTitle.bind(this)
+    this.handleCloseEditeTitle = this.handleCloseEditeTitle.bind(this)
 
-    this.handleShowAddCard = this.handleShowAddCard.bind(this);
-    this.handleCloseAddCard = this.handleCloseAddCard.bind(this);
+    this.handleShowAddCard = this.handleShowAddCard.bind(this)
+    this.handleCloseAddCard = this.handleCloseAddCard.bind(this)
 
-    this.handleShowEditCard = this.handleShowEditCard.bind(this);
-    this.handleCloseEditCard = this.handleCloseEditCard.bind(this);
+    this.handleShowEditCard = this.handleShowEditCard.bind(this)
+    this.handleCloseEditCard = this.handleCloseEditCard.bind(this)
   }
 
 
@@ -105,13 +105,22 @@ export default class DataListe extends Component {
 
   handleShowEditCard = (event) => {
     this.nameOfAllListe()
+    const data = event.target
+    let cardDesc = data.getAttribute('data-carddesc')
+    if (cardDesc == null) {
+      cardDesc = ""
+    }
+
     this.setState({
-      selectedOption: { label: event.target.getAttribute('data-listelabel'), value: event.target.getAttribute('data-listekey') },
+      selectedOption: {
+        label: data.getAttribute('data-listelabel'),
+        value: data.getAttribute('data-listekey')
+      },
       modalEditCard: true,
-      cardTitle: event.target.name,
-      listeChangeId: event.target.id,
-      cardDescription: event.target.getAttribute('data-carddesc'),
-      cardID: event.target.getAttribute('data-cardid')
+      cardTitle: data.getAttribute('data-cardlabel'),
+      listeChangeId: data.id,
+      cardDescription: cardDesc,
+      cardID: data.getAttribute('data-cardid')
     })
   }
 
@@ -130,24 +139,26 @@ export default class DataListe extends Component {
   onChangeCardDescription = (e) => {
     this.setState({
       cardDescription: e.target.value
-    })    
+    })
   }
 
 
 
-  
+
   onSubmit = (e) => {
     e.preventDefault()
 
     let token = "Bearer " + localStorage.getItem("jwt")
+    const owner = localStorage.getItem("owner")
     axios.defaults.headers.common['Authorization'] = token
     const position = this.state.listes.length
-    if (this.state.listeAdd !== '') { 
+    if (this.state.listeAdd !== '' && owner !== null) {
       axios.post('/api/v1/listes', {
         key: uuid(),
         label: this.state.listeAdd,
         board: this.state.boardID,
-        position: position.toString()
+        position: position.toString(),
+        owner: owner
       })
         .then(response => {
           const listes = update(this.state.listes, {
@@ -168,6 +179,7 @@ export default class DataListe extends Component {
   onSubmitCardAdd = (e) => {
     e.preventDefault()
     let token = "Bearer " + localStorage.getItem("jwt")
+    const owner = localStorage.getItem("owner")
     axios.defaults.headers.common['Authorization'] = token
     const position = this.state.cards.length
     if (this.state.cardTitle !== '') {
@@ -177,6 +189,7 @@ export default class DataListe extends Component {
         board: this.state.boardID,
         liste: this.state.listeKey,
         position: position,
+        owner: owner,
         key: uuid()
       })
         .then(response => {
@@ -267,7 +280,8 @@ export default class DataListe extends Component {
     if (this.state.cardTitle !== '' && this.state.listeChangeId !== '') {
       let token = "Bearer " + localStorage.getItem("jwt")
       axios.defaults.headers.common['Authorization'] = token
-      axios.put(`/api/v1/cards/${id}`, {card: {
+      axios.put(`/api/v1/cards/${id}`, {
+        card: {
           label: this.state.cardTitle,
           liste: this.state.selectedOption.value,
           description: this.state.cardDescription
@@ -335,7 +349,6 @@ export default class DataListe extends Component {
     const nameOfListe = []
     while (options.length > 0) { options.pop() }
 
-
     for (let i = 0; i < this.state.listes.length; i++) {
       nameOfListe.push(this.state.listes[i].label)
       options.push({ value: this.state.listes[i].key, label: this.state.listes[i].label })
@@ -352,10 +365,10 @@ export default class DataListe extends Component {
 
 
   render() {
-    const { selectedOption } = this.state;
+    const { selectedOption } = this.state
     return (
       <Fragment>
-        <Header/>
+        <Header />
         <div className='board-list pl-2'>
 
           {this.state.listes.map((listes) => {
@@ -385,17 +398,20 @@ export default class DataListe extends Component {
                           <span>{cards.label}</span>
                           <a
                             href={'#' + listes.position}
-                            name={cards.label}
-                            id={cards.position}
                             onClick={this.handleShowEditCard}
-                            data-cardid={cards.id}
-                            data-listelabel={listes.label}
-                            data-carddesc={cards.description}
-                            data-listekey={listes.key}
                             style={{ cursor: "pointer", float: "right" }}
                             role="img"
                           >
-                            ⚙️
+                            <i
+                              className="fas fa-edit"
+                              id={cards.position}
+                              data-cardid={cards.id}
+                              data-cardlabel={cards.label}
+                              data-listelabel={listes.label}
+                              data-carddesc={cards.description}
+                              data-listekey={listes.key}
+                            >
+                            </i>
                           </a>
                         </div>
                       )

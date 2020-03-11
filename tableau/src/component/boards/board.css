@@ -1,12 +1,13 @@
 .board {
-    background-color:#41a60d;
-    color:white;
+    background-color: #ffbb00e3;
+    color: white;
     max-width: 230px;
     height: 100px;
 }
+
 .creat-board {
-    background-color:grey;
-    color:white;
+    background-color: grey;
+    color: white;
     max-width: 230px;
     height: 100px;
 }

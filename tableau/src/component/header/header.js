@@ -14,7 +14,7 @@ export default class header extends Component {
                                 <a className="nav-link" href="/">Mes Tableaux</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">Informations</a>
+                                <a className="nav-link" href="#test">Informations</a>
                             </li>
                             {/* <li className="nav-item">
                                 <a className="nav-link" href="#">Link</a>

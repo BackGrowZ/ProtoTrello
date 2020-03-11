@@ -1,26 +1,36 @@
 import React, { Component, Fragment } from 'react'
-import axios from 'axios';
+import axios from 'axios'
 import Header from '../header/header'
 
 class Login extends Component {
   constructor() {
     super()
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   handleSubmit(event) {
-    event.preventDefault();
+    event.preventDefault()
     let token = "Bearer " + localStorage.getItem("jwt")
     axios.defaults.headers.common['Authorization'] = token
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    const request = { "auth": { "email": email, "password": password } };
+    const email = document.getElementById('email').value
+    const password = document.getElementById('password').value
+    const request = { "auth": { "email": email, "password": password } }
     axios.post('/api/v1/user_token', request)
       .then(response => {
-        localStorage.setItem("jwt", response.data.jwt);
-        this.props.history.push("/");
+        localStorage.setItem("jwt", response.data.jwt)
       })
-      .catch(error => console.log('error', error));
+      .catch(error => console.log('error', error))
+
+    axios.get('/api/v1/users')
+      .then(response => {
+        for (let i = 0; i < response.data.length; i++) {
+          if (response.data[i].email === email) {
+            localStorage.setItem("owner", response.data[i].owner)
+          }
+        }
+        this.props.history.push("/")
+      })
+      .catch(error => console.log('error', error))
   }
 
   render() {
@@ -46,4 +56,4 @@ class Login extends Component {
 }
 
 
-export default Login;
+export default Login

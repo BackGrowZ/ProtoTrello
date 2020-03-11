@@ -2,6 +2,12 @@ class BoardsController < ApplicationController
   before_action :authenticate_user
   def index
     board = Board.all
+    # board = board.where("owner == 'e5956986-a71c-4d35-aad8-6f8e91edf543'")
+    render json: board
+  end
+
+  def show
+    board = Board.find(params[:id])
     render json: board
   end
 
@@ -24,6 +30,6 @@ class BoardsController < ApplicationController
   
   private
     def board_param
-      params.require(:board).permit(:label, :key)
+      params.require(:board).permit(:label, :key, :owner)
     end
 end
