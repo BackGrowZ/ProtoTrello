@@ -11,6 +11,7 @@
     "heroku-postbuild": "yarn build && yarn deploy"
   },
   "dependencies": {
-    "immutability-helper": "^3.0.1"
+    "immutability-helper": "^3.0.1",
+    "react-select": "^3.0.8"
   }
 }
