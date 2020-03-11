@@ -1,2 +1,2 @@
 web: PORT=3000 yarn --cwd tableau start
-api: PORT=3001 bundle exec rails server
+api: bundle exec rails server -p 3001
