@@ -8,7 +8,7 @@ import uuid from 'uuid'
 import update from 'immutability-helper'
 
 
-export default class Home extends Component {
+export default class Data extends Component {
   state = {
     modal: false
   }

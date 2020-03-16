@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import Home from './component/boards/Home'
+import Data from './component/boards/Data'
+import Home from './component/Home'
 import DataListe from './component/liste/Data'
 import Login from './component/login/Login'
 import Logout from './component/login/Logout.jsx'
@@ -14,6 +15,7 @@ export default class App extends Component {
     return  <Router>
         <Switch>
           <Route path='/' exact component={Home} />
+          <Route path='/myBoard' exact component={Data} />
           <Route path='/board/:id' exact component={DataListe} />
           <Route path='/login' exact component={Login} />
           <Route path='/logout' exact component={Logout} />
