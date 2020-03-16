@@ -11,16 +11,14 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 export default class App extends Component {
   render() {
-    return (
-      <Router>
+    return  <Router>
         <Switch>
-          <Route exact path='/' component={Home} />
-          <Route exact path='/board/:id' component={DataListe} />
-          <Route exact path='/login' component={Login} />
-          <Route exact path='/logout' component={Logout} />
+          <Route path='/' exact component={Home} />
+          <Route path='/board/:id' exact component={DataListe} />
+          <Route path='/login' exact component={Login} />
+          <Route path='/logout' exact component={Logout} />
           <Route component={NoMatchPage} />
         </Switch>
       </Router>
-    )
   }
 }
