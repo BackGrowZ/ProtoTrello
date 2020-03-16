@@ -15,12 +15,12 @@ user = User.new
 user.email = 'trello@mail.com'
 user.password = 'trello'
 user.password_confirmation = 'trello'
-admin.owner = 'dc4603f9-6be7-4fbf-a7ab-ccf8cc94c90d'
+user.owner = 'dc4603f9-6be7-4fbf-a7ab-ccf8cc94c90d'
 user.save
 
 user = User.new
 user.email = 'mdp@mail.com'
 user.password = 'mdp'
 user.password_confirmation = 'mdp'
-admin.owner = '3aa26066-be83-4150-ab81-75227deda726'
+user.owner = '3aa26066-be83-4150-ab81-75227deda726'
 user.save
