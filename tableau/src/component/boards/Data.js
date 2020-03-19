@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import Header from '../header/header'
+import Header from '../header/header.js'
 import axios from 'axios'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Modal from 'react-bootstrap/Modal'

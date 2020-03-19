@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import axios from 'axios'
-import Header from '../header/header'
+import Header from '../header/header.js'
 
 class Login extends Component {
   constructor() {
@@ -50,8 +50,8 @@ class Login extends Component {
             </form>
           </div>
           <br />
-          <div class="row">
-            <div class="col">
+          <div className="row">
+            <div className="col">
               <div className="card">
                 <div className="card-body text-center">Acces test n°1</div>
                 <ul className="ml-5 pb-2">
@@ -60,7 +60,7 @@ class Login extends Component {
                 </ul>
               </div>
             </div>
-            <div class="col">
+            <div className="col">
               <div className="card">
                 <div className="card-body text-center">Acces test n°2</div>
                 <ul className="ml-5 pb-2">
