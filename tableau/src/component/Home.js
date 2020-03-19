@@ -35,6 +35,7 @@ export default class Home extends Component {
                                 <li>Connexion</li>
                                 <li>Déconnexion</li>
                             </ol>
+                            <li>Page 404 custome</li>
                         </ul>
 
                         <h3>Todo</h3>
