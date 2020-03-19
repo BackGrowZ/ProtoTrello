@@ -49,6 +49,29 @@ class Login extends Component {
               <button className="btn btn-lg btn-primary btn-block">Connexion</button>
             </form>
           </div>
+          <br />
+          <div class="row">
+            <div class="col">
+              <div className="card">
+                <div className="card-body text-center">Acces test n°1</div>
+                <ul className="ml-5 pb-2">
+                  <li><b>Email: </b>trello@mail.com</li>
+                  <li><b>Mot de passe: </b>trello</li>
+                </ul>
+              </div>
+            </div>
+            <div class="col">
+              <div className="card">
+                <div className="card-body text-center">Acces test n°2</div>
+                <ul className="ml-5 pb-2">
+                  <li><b>Email: </b>mdp@mail.com</li>
+                  <li><b>Mot de passe: </b>mdp</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+
         </div>
       </Fragment>
     )
