@@ -6,7 +6,7 @@ export default class Carte extends Component {
             <Fragment>
                 <div className="carte pl-2 mt-1">
                     <a
-                        href={'#'+this.props.idListe}
+                        href={'#' + this.props.idListe}
                         name={this.props.label}
                         id={this.props.position}
                         onClick={this.props.handleShowEditCard}
@@ -15,7 +15,6 @@ export default class Carte extends Component {
                         {this.props.label}
                     </a>
                 </div>
-                {/* {console.log(this.props.idListe)} */}
             </Fragment>
         )
     }
