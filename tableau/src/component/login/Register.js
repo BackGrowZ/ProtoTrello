@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Button, FormGroup, FormControl } from "react-bootstrap";
-// import "./Login.css";
 
 export default function Login(props) {
   const [email, setEmail] = useState("");
@@ -14,13 +13,11 @@ export default function Login(props) {
   function handleSubmit(event) {
     event.preventDefault();
     console.log('good');
-    
   }
 
 
   return (
     <div className='container'>
-
       <div className="Login">
         <form onSubmit={handleSubmit}>
           <FormGroup controlId="email">
@@ -55,5 +52,5 @@ export default function Login(props) {
         </form>
       </div>
     </div>
-  );
+  )
 }
